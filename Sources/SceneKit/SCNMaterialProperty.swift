@@ -1,7 +1,7 @@
 import Foundation
 
-open class SCNAnimation {
-    public var timeOffset: TimeInterval {
+open class SCNMaterialProperty {
+    public var contents: Any? {
         get {
             preconditionFailure()
         }

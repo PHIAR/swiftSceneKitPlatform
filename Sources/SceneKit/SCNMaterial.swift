@@ -49,6 +49,16 @@ open class SCNMaterial {
         }
     }
 
+    public var locksAmbientWithDiffuse: Bool {
+        get {
+            preconditionFailure()
+        }
+
+        set {
+            preconditionFailure()
+        }
+    }
+
     public var writesToDepthBuffer: Bool {
         get {
             preconditionFailure()

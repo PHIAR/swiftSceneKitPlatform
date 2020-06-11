@@ -13,17 +13,19 @@ let package = Package(name: "SceneKit",
                       dependencies: [
                           .package(url: "https://github.com/PHIAR/simdFilament.git",
                                    .branch("master")),
+                          .package(url: "https://github.com/PHIAR/swiftMetalPlatform.git",
+                                   .branch("master")),
                       ],
                       targets: [
-                          .target(
-                              name: "SceneKit",
-                              dependencies: [
-                                  "simdFilament",
-                              ]),
-                          .testTarget(
-                              name: "SceneKitTests",
-                              dependencies: [
-                                  "SceneKit",
-                              ]),
+                          .target(name: "SceneKit",
+                                  dependencies: [
+                                      "simdFilament",
+                                      .product(name: "Metal",
+                                               package: "swiftMetalPlatform"),
+                                  ]),
+                          .testTarget(name: "SceneKitTests",
+                                      dependencies: [
+                                          "SceneKit",
+                                      ]),
                       ]
 )
