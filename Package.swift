@@ -6,6 +6,7 @@ let package = Package(name: "SceneKit",
                       products: [
                           .library(
                               name: "SceneKit",
+                              type: .dynamic,
                               targets: [
                                   "SceneKit",
                               ]),
