@@ -13,15 +13,16 @@ let platforms: [SupportedPlatform] = [
 let package = Package(name: "SceneKit",
                       platforms: platforms,
                       products: [
-                          .library(
-                              name: "SceneKit",
-                              type: .dynamic,
-                              targets: [
-                                  "SceneKit",
-                              ]),
+                          .library(name: "SceneKit",
+                                   type: .dynamic,
+                                   targets: [
+                                       "SceneKit",
+                                   ]),
                       ],
                       dependencies: [
                           .package(url: "https://github.com/PHIAR/simdFilament.git",
+                                   .branch("master")),
+                          .package(url: "https://github.com/PHIAR/swiftSDL2.git",
                                    .branch("master")),
                           .package(url: "https://github.com/PHIAR/swiftMetalPlatform.git",
                                    .branch("master")),
@@ -30,6 +31,7 @@ let package = Package(name: "SceneKit",
                           .target(name: "SceneKit",
                                   dependencies: [
                                       "simdFilament",
+                                      "swiftSDL2",
                                       .product(name: "Metal",
                                                package: "swiftMetalPlatform"),
                                   ]),
@@ -37,5 +39,4 @@ let package = Package(name: "SceneKit",
                                       dependencies: [
                                           "SceneKit",
                                       ]),
-                      ]
-)
+                      ])
