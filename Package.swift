@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:999.0
 
 import PackageDescription
 
@@ -35,8 +35,13 @@ let package = Package(name: "SceneKit",
                                       .product(name: "Metal",
                                                package: "swiftMetalPlatform"),
                                   ]),
+                          .target(name: "TestModel",
+                                  resources: [
+                                      .copy("TestModel.scnassets"),
+                                  ]),
                           .testTarget(name: "SceneKitTests",
                                       dependencies: [
                                           "SceneKit",
+                                          "TestModel",
                                       ]),
                       ])

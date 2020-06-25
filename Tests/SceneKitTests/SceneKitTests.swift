@@ -1,9 +1,15 @@
 import swiftSDL2
 import SceneKit
+import TestModel
 import XCTest
 
 internal final class SceneKitTests: XCTestCase {
     func testScene() {
+        let bundle = Bundle.testModelBundle
+        let url = bundle.url(forResource: "TestModel",
+                             withExtension: "scnassets")!
+        let scene = SCNScene(url: url)
+
         SDL2.initialize(flags: .everything)
 
         let window = Window(title: "SceneKit Test",

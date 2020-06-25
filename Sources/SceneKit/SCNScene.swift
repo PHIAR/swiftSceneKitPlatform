@@ -9,6 +9,7 @@ open class SCNScene {
         preconditionFailure()
     }
 
-    public init() {
+    public init(url: URL,
+                options: [String: Any]? = nil) {
     }
 }
